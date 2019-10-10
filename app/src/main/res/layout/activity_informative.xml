@@ -79,10 +79,67 @@
             app:srcCompat="@drawable/eattheivy" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/f2desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text=" Dozens of kinds of birds including bobwhite quail eat the fruits, which are clusters of smooth, white berries that appear in late summer. Another example is one serious case of poison ivy contracted by a wildlife student examining the contents of a recently killed dears stomach. In the data recorded from his research, deers sometimes digest a heavy amount of Poison Ivy leaves."
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/f3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. The rash isn't contagious"
+            android:textSize="24sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/notcontageous" />
+
+        <TextView
+            android:id="@+id/f3desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In order to develop the allergic rash, you have to come into contact with the plant itself, which means that the poison ivy/oak/sumac rash isn’t contagious from person to person, even if you come in contact with the fluid inside the blisters"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30sp" />
+
+        <TextView
+            android:id="@+id/f4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Dead plants can still poison you"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/immortal" />
+
+        <TextView
+            android:id="@+id/f4desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Urushiol(the poisonous oil that resides in the plant itself) remains active for up to five years. Never handle dead plants that look like poison ivy without proper protection."
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
