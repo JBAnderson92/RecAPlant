@@ -141,6 +141,74 @@
             android:layout_width="match_parent"
             android:layout_height="30sp" />
 
+        <TextView
+            android:id="@+id/f5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. You have a 15% chance of being immune to the plants"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/chance" />
+
+        <TextView
+            android:id="@+id/f5desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="These plants cause an allergic reaction in nearly 85% of the population. The remaining 15% are naturally immune to the resin the plan secrets. If you're lucky enough to be in the 15%, you're basically superhuman"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/f6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. They were sent to Europe as Exotic Oddities and kept in gardens."
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/exoticgarden" />
+
+        <TextView
+            android:id="@+id/f6desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upon discovery by John Smith in the 1600's, and being native only to the U.S.A, these plants were thought of exotic oddities. They were sent to Europe and were kept in gardens in many European houses. Might not want to stop and smell the roses in those household gardens."
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30sp" />
+
+        <TextView
+            android:id="@+id/f7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. Do NOT burn these plants"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/f7img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dontburn" />
+
+        <TextView
+            android:id="@+id/f7desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Particles of urushiol remain in the fire’s smoke and can severely aggravate your eyes, nose and respiratory tract, as well as your skin. Instead of burning it to get rid of it, completely cover yourself with clothing and dig out the plant, getting as much of the root as possible. Put it in a plastic trash bag and throw it away."
+            android:textSize="18sp" />
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
