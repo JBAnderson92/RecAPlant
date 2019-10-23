@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,7 +42,6 @@ public class Identify extends AppCompatActivity {
                 dispatchTakePictureIntent();
                 //startActivityForResult(intent, REQUEST_CODE);
 
-
             }
         });
     }
@@ -69,12 +69,12 @@ public class Identify extends AppCompatActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-
+                Log.v("DevEr","Error creating the file");
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "edu.ggc.anderson.recaplant",
+                        "edu.ggc.anderson.RecAPlant",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
