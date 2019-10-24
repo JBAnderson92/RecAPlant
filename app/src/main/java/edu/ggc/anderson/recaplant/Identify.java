@@ -32,6 +32,8 @@ public class Identify extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
     private String selectedImagePath;
 
+    static final int CAMERA_REQUEST_CODE = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,7 @@ public class Identify extends AppCompatActivity {
         }
 
 
+
         //FOR CAPTURE IMAGE
         /*if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
@@ -102,7 +105,9 @@ public class Identify extends AppCompatActivity {
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
         // Ensure that there's a camera activity to handle the intent
+
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
@@ -123,6 +128,13 @@ public class Identify extends AppCompatActivity {
             }
         }
     }
+
+    public void takePictureFromCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA_REQUEST_CODE);
+    }
+
+    
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
