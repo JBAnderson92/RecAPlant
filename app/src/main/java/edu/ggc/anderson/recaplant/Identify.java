@@ -21,29 +21,48 @@ import java.util.Date;
 
 public class Identify extends AppCompatActivity {
 
+    //1 request photo
     static final int REQUEST_TAKE_PHOTO = 1;
+    //path for photo
     String currentPhotoPath;
+    //captured picture req
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    //Show img
     ImageView imageView;
+    //req code
     public static final int REQUEST_CODE = 999;
 
     @Override
+    //return nothing but accept the bundle -> saveInstanceState
     protected void onCreate(Bundle savedInstanceState) {
+        //From the super class -> use the saveInstanceState on create
         super.onCreate(savedInstanceState);
+        // set The content view -> using the R layout==> of activity_identify.xml
         setContentView(R.layout.activity_identify);
 
+        //Create a camera button --> which opens the camera on the emulator
         Button btnCamera = findViewById(R.id.btnCamera);
+
+        //Design on top before the open camera button.
         ImageView imageView = findViewById(R.id.ivIdentify);
 
+        //When the button is clicked
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Open this function
                 dispatchTakePictureIntent();
                 //startActivityForResult(intent, REQUEST_CODE);
 
 
             }
         });
+
+
+
+//        btnCamera.setOnClickListener((v)  -> dispatchTakePictureIntent();)
+
+
     }
 
     @Override
@@ -89,7 +108,7 @@ public class Identify extends AppCompatActivity {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
+                ".jpg",   /* suffix */
                 storageDir      /* directory */
         );
 
@@ -104,7 +123,4 @@ public class Identify extends AppCompatActivity {
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
     }
-
-
-
 }
