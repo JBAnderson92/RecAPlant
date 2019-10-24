@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,10 @@ public class Identify extends AppCompatActivity {
     ImageView imageView;
     public static final int REQUEST_CODE = 999;
 
+    private static final int SELECT_PICTURE = 1;
+    private String selectedImagePath;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,8 @@ public class Identify extends AppCompatActivity {
 
         Button btnCamera = findViewById(R.id.btnCamera);
         ImageView imageView = findViewById(R.id.ivIdentify);
+
+        Button btnOpenGal = findViewById((R.id.btnOpenGal));
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,16 +51,50 @@ public class Identify extends AppCompatActivity {
 
             }
         });
+
+        btnOpenGal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_PICTURE);
+
+            }
+        });
     }
-
+     //Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            if (resultCode == RESULT_OK) {
+                if (requestCode == SELECT_PICTURE) {
+                    Uri selectedImageUri = data.getData();
+                    // Get the path from the Uri
+                    final String path = getPathFromURI(selectedImageUri);
+                    if (path != null) {
+                        File f = new File(path);
+                        selectedImageUri = Uri.fromFile(f);
+                    }
+                    // Set the image in ImageView
+                    ImageView imageView = (ImageView)findViewById(R.id.ivIdentify);
+                    imageView.setImageURI(null);
+                    imageView.setImageURI(selectedImageUri);
 
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                }
+            }
+        } catch (Exception e) {
+            Log.e("FileSelectorActivity", "File select error", e);
+        }
+
+
+        //FOR CAPTURE IMAGE
+        /*if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
-        }
+        }*/
         //super.onActivityResult(requestCode, resultCode, data);
         //Bitmap bitmap = (Bitmap)data.getExtras().get("data");
         //imageView.setImageBitmap(bitmap);
@@ -105,6 +146,19 @@ public class Identify extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        return res;
+    }
 
 
-}
+
+
+    }
