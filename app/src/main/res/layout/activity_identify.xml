@@ -15,8 +15,8 @@
     <ImageView
         android:id="@+id/ivIdentify"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="9" />
+        android:layout_height="556dp"
+        android:layout_weight="7" />
 
     <Button
         android:id="@+id/btnCamera"
@@ -26,5 +26,19 @@
         android:background="@android:color/holo_red_dark"
         android:text="Open Camera"
         android:textColor="@android:color/white"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_weight=".5" />
+
+    <Button
+        android:id="@+id/btnOpenGal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_dark"
+        android:text="Open Gallery"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

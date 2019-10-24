@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.ggc.anderson.recaplant">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -23,12 +25,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirstAid_Safe"></activity>
-        <activity android:name=".FirstAid_PoisionOak" />
-        <activity android:name=".FirstAid_PoisionSumac" />
-        <activity android:name=".FirstAid_PoisionIvy" />
-        <activity android:name=".FirstAid_bullNettle" />
-        <activity android:name=".FirstAid" />
         <activity android:name=".Identify" />
         <activity android:name=".Informative" />
         <activity

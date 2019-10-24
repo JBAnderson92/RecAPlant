@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,58 +23,78 @@ import java.util.Date;
 
 public class Identify extends AppCompatActivity {
 
-    //1 request photo
     static final int REQUEST_TAKE_PHOTO = 1;
-    //path for photo
     String currentPhotoPath;
-    //captured picture req
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    //Show img
     ImageView imageView;
-    //req code
     public static final int REQUEST_CODE = 999;
 
+    private static final int SELECT_PICTURE = 1;
+    private String selectedImagePath;
+
+
     @Override
-    //return nothing but accept the bundle -> saveInstanceState
     protected void onCreate(Bundle savedInstanceState) {
-        //From the super class -> use the saveInstanceState on create
         super.onCreate(savedInstanceState);
-        // set The content view -> using the R layout==> of activity_identify.xml
         setContentView(R.layout.activity_identify);
 
-        //Create a camera button --> which opens the camera on the emulator
         Button btnCamera = findViewById(R.id.btnCamera);
-
-        //Design on top before the open camera button.
         ImageView imageView = findViewById(R.id.ivIdentify);
 
-        //When the button is clicked
+        Button btnOpenGal = findViewById((R.id.btnOpenGal));
+
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Open this function
                 dispatchTakePictureIntent();
                 //startActivityForResult(intent, REQUEST_CODE);
-
 
             }
         });
 
+        btnOpenGal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_PICTURE);
 
-
-//        btnCamera.setOnClickListener((v)  -> dispatchTakePictureIntent();)
-
-
+            }
+        });
     }
-
+     //Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            if (resultCode == RESULT_OK) {
+                if (requestCode == SELECT_PICTURE) {
+                    Uri selectedImageUri = data.getData();
+                    // Get the path from the Uri
+                    final String path = getPathFromURI(selectedImageUri);
+                    if (path != null) {
+                        File f = new File(path);
+                        selectedImageUri = Uri.fromFile(f);
+                    }
+                    // Set the image in ImageView
+                    ImageView imageView = (ImageView)findViewById(R.id.ivIdentify);
+                    imageView.setImageURI(null);
+                    imageView.setImageURI(selectedImageUri);
 
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                }
+            }
+        } catch (Exception e) {
+            Log.e("FileSelectorActivity", "File select error", e);
+        }
+
+
+        //FOR CAPTURE IMAGE
+        /*if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
-        }
+        }*/
         //super.onActivityResult(requestCode, resultCode, data);
         //Bitmap bitmap = (Bitmap)data.getExtras().get("data");
         //imageView.setImageBitmap(bitmap);
@@ -88,12 +110,12 @@ public class Identify extends AppCompatActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-
+                Log.v("DevEr","Error creating the file");
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "edu.ggc.anderson.recaplant",
+                        "edu.ggc.anderson.RecAPlant",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
@@ -108,7 +130,7 @@ public class Identify extends AppCompatActivity {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
-                ".jpg",   /* suffix */
+                ".jpg",         /* suffix */
                 storageDir      /* directory */
         );
 
@@ -123,4 +145,20 @@ public class Identify extends AppCompatActivity {
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
     }
-}
+
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        return res;
+    }
+
+
+
+
+    }
