@@ -4,35 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:textAlignment="center"
     tools:context=".FirstAid">
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="227dp" >
+    <ImageView
+        android:id="@+id/bullNettle"
+        android:layout_width="381dp"
+        android:layout_height="358dp"
+        android:contentDescription="@string/app_name"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383"
+        app:srcCompat="@drawable/bullnettle"
+        tools:layout_editor_absoluteX="14dp" />
 
-        <VideoView
-            android:id="@+id/videoView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#2196F3" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="403dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Bull Nettle"
+        android:textAlignment="center"
+        android:textColor="#F71506"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="66dp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:ems="10"
-            android:foreground="@drawable/backgroundimg"
-            android:inputType="textPersonName"
-            android:text="Bull Nettle"
-            android:textAlignment="center" />
-
-    </com.google.android.material.navigation.NavigationView>
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="355dp"
+        android:layout_height="150dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="There is no cure for the rash. You'll
+        have to wait for the symptoms to pass. There are many over-the-counter
+         remedies to help with your symptoms in the meantime, including:
+           * Calamine lotion
+           * Hydrocortisone Creams
+           * Typical anesthetics,
+               - such as... (cont)"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="522dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+

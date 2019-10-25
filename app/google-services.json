@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "975072549211",
+    "firebase_url": "https://mlkit-8e5ac.firebaseio.com",
+    "project_id": "mlkit-8e5ac",
+    "storage_bucket": "mlkit-8e5ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975072549211:android:6a705052feabeadd29227e",
+        "android_client_info": {
+          "package_name": "edu.ggc.anderson.mlkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975072549211-ah3pgkm11o19hrf4in672v60418682u4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ggc.anderson.mlkit",
+            "certificate_hash": "f88763c088144d25a6ccfb6ba0b3440c779c5af8"
+          }
+        },
+        {
+          "client_id": "975072549211-98jv4rbnsk8h3v2npdm1t1099g3mq5pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWCb0rahAW6vXzEa2UoArJ6Pem6vMVWcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975072549211-98jv4rbnsk8h3v2npdm1t1099g3mq5pi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975072549211:android:5b02c3f2cc91c21e29227e",
+        "android_client_info": {
+          "package_name": "edu.ggc.anderson.recaplant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975072549211-hh9ellk6g53b7go97ipj922vhm08b49i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ggc.anderson.recaplant",
+            "certificate_hash": "45460f12e2d6ac7f54e5f75f5034473025528e90"
+          }
+        },
+        {
+          "client_id": "975072549211-utk25vabm2bfd90ff114lmt1cvds4868.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ggc.anderson.recaplant",
+            "certificate_hash": "f88763c088144d25a6ccfb6ba0b3440c779c5af8"
+          }
+        },
+        {
+          "client_id": "975072549211-98jv4rbnsk8h3v2npdm1t1099g3mq5pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWCb0rahAW6vXzEa2UoArJ6Pem6vMVWcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975072549211-98jv4rbnsk8h3v2npdm1t1099g3mq5pi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
