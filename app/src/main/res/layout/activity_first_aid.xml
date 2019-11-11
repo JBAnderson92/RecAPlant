@@ -10,46 +10,47 @@
 
     <ImageView
         android:id="@+id/bullNettle"
-        android:layout_width="381dp"
-        android:layout_height="358dp"
+        android:layout_width="456dp"
+        android:layout_height="180dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383"
-        app:srcCompat="@drawable/bullnettle"
-        tools:layout_editor_absoluteX="14dp" />
+        app:layout_constraintVertical_bias="0.29"
+        app:srcCompat="@drawable/bullnettle" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="403dp"
         android:layout_height="65dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="29dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Bull Nettle"
         android:textAlignment="center"
         android:textColor="#F71506"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/bullNettle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="66dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="355dp"
-        android:layout_height="150dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="There is no cure for the rash. You'll
-        have to wait for the symptoms to pass. There are many over-the-counter
-         remedies to help with your symptoms in the meantime, including:
-           * Calamine lotion
-           * Hydrocortisone Creams
-           * Typical anesthetics,
-               - such as... (cont)"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="522dp" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="415dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bullNettle"
+        app:srcCompat="@drawable/nocure" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

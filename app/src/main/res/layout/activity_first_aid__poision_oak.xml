@@ -4,6 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstAid_PoisionOak">
+    android:background="@color/colorPrimary"
+    android:textAlignment="center"
+    tools:context=".FirstAid">
+
+    <ImageView
+        android:id="@+id/poisonOak"
+        android:layout_width="456dp"
+        android:layout_height="180dp"
+        android:contentDescription="@string/app_name"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29"
+        app:srcCompat="@drawable/poisionoak" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="403dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Poison Oak"
+        android:textAlignment="center"
+        android:textColor="#F71506"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/poisonOak"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="415dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/poisonOak"
+        app:srcCompat="@drawable/nocure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
