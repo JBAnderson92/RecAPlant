@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#27B186"
+        android:background="#EDF3F0"
         android:orientation="vertical">
 
         <ImageView
@@ -221,7 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/titleinformed"
+                android:background="@drawable/link"
                 android:onClick="browser1" />
         </LinearLayout>
 
