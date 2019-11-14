@@ -164,7 +164,7 @@ public class Identify extends AppCompatActivity {
                                                             Log.v("Label",text);
                                                             //String entityId = label.getEntityId();
                                                             TextView classifier = findViewById(R.id.classifier);
-                                                            classifier.setText(text);
+                                                            classifier.setText(text + "\n" + (100 * confidence) +"% Confidence");
                                                         }
                                                     }
                                                 })
@@ -222,7 +222,7 @@ public class Identify extends AppCompatActivity {
                                                         Log.v("Label",text);
                                                         //String entityId = label.getEntityId();
                                                         TextView classifier = findViewById(R.id.classifier);
-                                                        classifier.setText(text);
+                                                        classifier.setText(text + "" + "\n" + "" + (100 * confidence) + "% Confidence");
                                                     }
                                                 }
                                             })
