@@ -10,15 +10,15 @@
 
     <ImageView
         android:id="@+id/bullNettle"
-        android:layout_width="456dp"
-        android:layout_height="180dp"
+        android:layout_width="439dp"
+        android:layout_height="475dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.242"
         app:srcCompat="@drawable/bullnettle" />
 
     <EditText
@@ -37,19 +37,28 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/bullNettle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="415dp"
-        android:layout_height="352dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bullNettle"
-        app:srcCompat="@drawable/nocure" />
+    <EditText
+        android:id="@+id/aid"
+        android:layout_width="437dp"
+        android:layout_height="385dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="562dp"
+        tools:text="Treatment: \n
+        •	Wash the area with soap and water as soon as possible to relieve the sting and remove the nettle hairs.
+        If no water is available, clean the area with a cloth or other available material. \n
+         •	Apply a paste of baking soda and water. \n
+         •	Avoid scratching or rubbing the itchy areas. \n
+         •	Use cool, light, bedding and clothing as this will help relieve itching. \n
+         •	Avoid extreme heat – have lukewarm baths and showers. \n
+         •	Apply cold compresses. " />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

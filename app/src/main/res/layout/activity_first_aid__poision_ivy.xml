@@ -8,17 +8,19 @@
     android:textAlignment="center"
     tools:context=".FirstAid">
 
+
     <ImageView
         android:id="@+id/poisonIvy"
-        android:layout_width="456dp"
-        android:layout_height="180dp"
+        android:layout_width="439dp"
+        android:layout_height="275dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.267"
         app:srcCompat="@drawable/poisionivy" />
 
     <EditText
@@ -37,19 +39,26 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/poisonIvy"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="415dp"
-        android:layout_height="352dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poisonIvy"
-        app:srcCompat="@drawable/nocure" />
+    <EditText
+        android:id="@+id/aid"
+        android:layout_width="500dp"
+        android:layout_height="475dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="572dp"
+        tools:text="Treatment: \n
+        • Apply an over-the-counter corticosteroid cream for the first few days. \n
+        • Apply calamine lotion. \n
+        • Take oral antihistamines, such as diphenhydramine (Benadryl, others), which may also help you sleep better. \n
+        • Soak in a cool-water bath containing an oatmeal-based bath product (Aveeno). \n
+        • Place cool, wet compresses on the affected area for 15 to 30 minutes several times a day. " />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

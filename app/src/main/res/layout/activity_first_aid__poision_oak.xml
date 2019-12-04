@@ -8,17 +8,19 @@
     android:textAlignment="center"
     tools:context=".FirstAid">
 
+
     <ImageView
         android:id="@+id/poisonOak"
-        android:layout_width="456dp"
-        android:layout_height="180dp"
+        android:layout_width="439dp"
+        android:layout_height="275dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.33"
         app:srcCompat="@drawable/poisionoak" />
 
     <EditText
@@ -37,19 +39,27 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/poisonOak"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="415dp"
-        android:layout_height="352dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poisonOak"
-        app:srcCompat="@drawable/nocure" />
+    <EditText
+        android:id="@+id/aid"
+        android:layout_width="500dp"
+        android:layout_height="375dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="531dp"
+        tools:text="Treatment: \n
+        • Staying away from the poison oak and keeping the rash from getting irritated or infected by anything else. \n
+        • Not scratching at the itch as this can cause more damage, itchiness, pain, and infection. \n
+        • Simple, clean, warm water bathing, followed by clean, dry, gentle patting or natural drying helps. \n
+        • Using emollient cream to protect the skin from losing moisture and keep the skin's barrier function. \n
+            Emollient cream is available for purchase online.
+ " />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
