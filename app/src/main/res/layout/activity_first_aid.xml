@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/bullNettle"
-        android:layout_width="439dp"
-        android:layout_height="475dp"
+        android:layout_width="339dp"
+        android:layout_height="375dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,15 +44,15 @@
 
     <EditText
         android:id="@+id/aid"
-        android:layout_width="437dp"
-        android:layout_height="385dp"
+        android:layout_width="391dp"
+        android:layout_height="328dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="562dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="399dp"
         tools:text="Treatment: \n
-        •	Wash the area with soap and water as soon as possible to relieve the sting and remove the nettle hairs.
+        •	Wash the area with soap and water as soon as possible to relieve the sting and remove the nettle hairs. \n
         If no water is available, clean the area with a cloth or other available material. \n
          •	Apply a paste of baking soda and water. \n
          •	Avoid scratching or rubbing the itchy areas. \n

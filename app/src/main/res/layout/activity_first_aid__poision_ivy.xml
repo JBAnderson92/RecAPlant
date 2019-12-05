@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/poisonIvy"
-        android:layout_width="439dp"
+        android:layout_width="339dp"
         android:layout_height="275dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
@@ -46,13 +46,13 @@
 
     <EditText
         android:id="@+id/aid"
-        android:layout_width="500dp"
-        android:layout_height="475dp"
+        android:layout_width="375dp"
+        android:layout_height="394dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="572dp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="415dp"
         tools:text="Treatment: \n
         • Apply an over-the-counter corticosteroid cream for the first few days. \n
         • Apply calamine lotion. \n

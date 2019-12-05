@@ -46,13 +46,13 @@
 
     <EditText
         android:id="@+id/aid"
-        android:layout_width="500dp"
-        android:layout_height="375dp"
+        android:layout_width="430dp"
+        android:layout_height="321dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="531dp"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="434dp"
         tools:text="Treatment: \n
         • Staying away from the poison oak and keeping the rash from getting irritated or infected by anything else. \n
         • Not scratching at the itch as this can cause more damage, itchiness, pain, and infection. \n
