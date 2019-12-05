@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,6 +45,7 @@ import android.widget.TextView;
 
 public class Identify extends AppCompatActivity {
 
+
     static final int REQUEST_TAKE_PHOTO = 1;
     String currentPhotoPath;
     static final int REQUEST_IMAGE_CAPTURE = 3;
@@ -57,25 +59,29 @@ public class Identify extends AppCompatActivity {
     FirebaseVisionImage image;
     public String text;
 
+    //creating a firebase model object builder
     public FirebaseAutoMLRemoteModel remoteModel =
-            new FirebaseAutoMLRemoteModel.Builder("PoisonFlowers_20191023222748").build();
-
-
+            new FirebaseAutoMLRemoteModel.Builder("PoisonFlowers_2019124211524").build();
+    Button firstAidButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify);
 
+        //defining buttons for camera functions
         Button btnCamera = findViewById(R.id.btnCamera);
         ImageView imageView = findViewById(R.id.ivIdentify);
-
         Button btnOpenGal = findViewById((R.id.btnOpenGal));
 
+
+
+        //download the cloud model for use
         FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder()
                 .requireWifi()
                 .build();
 
+        //downloads a local copy of remote model. If user has no WiFi, it will use the most recently downloaded model.
         FirebaseModelManager.getInstance().download(remoteModel, conditions)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -85,17 +91,21 @@ public class Identify extends AppCompatActivity {
                 });
 
 
+        //listen for a person clicking the camera button
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //call take picture method
                 dispatchTakePictureIntent();
 
             }
         });
 
+        //listen for person clicking gallery button
         btnOpenGal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //open phone gallery and save image
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
@@ -103,12 +113,14 @@ public class Identify extends AppCompatActivity {
 
             }
         });
+
     }
      //Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
+            //sending the picture to firebase by creating a file path to send via firebase
             if (resultCode == RESULT_OK && requestCode == SELECT_PICTURE) {
 
                     Uri selectedImageUri = data.getData();
@@ -133,6 +145,7 @@ public class Identify extends AppCompatActivity {
 
 
 
+                    //check if model is downloaded
                     FirebaseModelManager.getInstance().isModelDownloaded(remoteModel)
                             .addOnSuccessListener(new OnSuccessListener<Boolean>() {
                                 @Override
@@ -144,11 +157,13 @@ public class Identify extends AppCompatActivity {
                                         Log.v("ModelError","Coudltn Find remote model");
                                        // optionsBuilder = new FirebaseVisionOnDeviceAutoMLImageLabelerOptions.Builder(localModel);
                                     }
+                                    //setting the confidence level of the model. If it is 51% sure it's a correct prediction, then present the prediction.
                                     FirebaseVisionOnDeviceAutoMLImageLabelerOptions options = optionsBuilder
-                                            .setConfidenceThreshold(0.6f)  // Evaluate your model in the Firebase console
+                                            .setConfidenceThreshold(0.51f)  // Evaluate your model in the Firebase console
                                             // to determine an appropriate threshold.
                                             .build();
 
+                                    //firebase code if the prediction is a success IN THE GALLERY, present the data in an image view, and populate text view with name of prediction and confidence level.
                                     FirebaseVisionImageLabeler labeler;
                                     try {
                                         labeler = FirebaseVision.getInstance().getOnDeviceAutoMLImageLabeler(options);
@@ -165,6 +180,25 @@ public class Identify extends AppCompatActivity {
                                                             //String entityId = label.getEntityId();
                                                             TextView classifier = findViewById(R.id.classifier);
                                                             classifier.setText(text + "\n" + (100 * confidence) +"% Confidence");
+
+                                                        }
+                                                        //makes first aid button visible if prediction is poisonous plant
+                                                        if(text.toLowerCase().contains("pois") || text.toLowerCase().contains("bull")){
+                                                            Button firstAidButton = findViewById(R.id.firsAidButton);
+                                                            firstAidButton.setVisibility(View.VISIBLE);
+                                                            Log.v("Button","ISVISIBLE");
+
+                                                            firstAidButton.setOnClickListener(new View.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    Intent intent = new Intent(Identify.this, FirstAidTest.class);
+                                                                    startActivityForResult(intent,998);
+                                                                }
+                                                            });
+
+                                                        }else{
+                                                            Button firstAidButton = findViewById(R.id.firsAidButton);
+                                                            firstAidButton.setVisibility(View.INVISIBLE);
                                                         }
                                                     }
                                                 })
@@ -179,9 +213,12 @@ public class Identify extends AppCompatActivity {
                                         // Error.
                                     }
                                 }
+
                             });
 
                 }
+
+            //firebase code if the prediction is a success CAMERA RESULT, present the data in an image view, and populate text view with name of prediction and confidence level.
                 else if (resultCode == RESULT_OK && requestCode == CAMERA_REQUEST_CODE) {
                     // Show preview
                     Bundle extras = data.getExtras();
@@ -203,7 +240,7 @@ public class Identify extends AppCompatActivity {
                                     // optionsBuilder = new FirebaseVisionOnDeviceAutoMLImageLabelerOptions.Builder(localModel);
                                 }
                                 FirebaseVisionOnDeviceAutoMLImageLabelerOptions options = optionsBuilder
-                                        .setConfidenceThreshold(0.6f)  // Evaluate your model in the Firebase console
+                                        .setConfidenceThreshold(0.51f)  // Evaluate your model in the Firebase console
                                         // to determine an appropriate threshold.
                                         .build();
 
@@ -223,9 +260,29 @@ public class Identify extends AppCompatActivity {
                                                         //String entityId = label.getEntityId();
                                                         TextView classifier = findViewById(R.id.classifier);
                                                         classifier.setText(text + "" + "\n" + "" + (100 * confidence) + "% Confidence");
+
+                                                    }
+                                                    //makes first aid button visible if prediction is poisonous plant
+                                                    if(text.toLowerCase().contains("pois") || text.toLowerCase().contains("bull")){
+                                                        Button firstAidButton = findViewById(R.id.firsAidButton);
+                                                        firstAidButton.setVisibility(View.VISIBLE);
+                                                        Log.v("Button","ISVISIBLE");
+
+                                                        firstAidButton.setOnClickListener(new View.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(View v) {
+                                                                Intent intent = new Intent(Identify.this, FirstAidTest.class);
+                                                                startActivityForResult(intent,998);
+                                                            }
+                                                        });
+
+                                                    }else{
+                                                        Button firstAidButton = findViewById(R.id.firsAidButton);
+                                                        firstAidButton.setVisibility(View.INVISIBLE);
                                                     }
                                                 }
                                             })
+
                                             .addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
@@ -240,12 +297,14 @@ public class Identify extends AppCompatActivity {
                         });
                 }
 
+
         } catch (Exception e) {
             Log.e("FileSelectorActivity", "File select error", e);
         }
 
     }
 
+    //takes the image presented, creates a file to be able to send to firebase.
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -283,6 +342,7 @@ public class Identify extends AppCompatActivity {
         return image;
     }
 
+    //non working function. Future use is to save the captured image to phones gallery.
     private void galleryAddPic() {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(currentPhotoPath);
@@ -291,6 +351,7 @@ public class Identify extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
+    //function used to get the photos unique path and send to firebase.
     public String getPathFromURI(Uri contentUri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};

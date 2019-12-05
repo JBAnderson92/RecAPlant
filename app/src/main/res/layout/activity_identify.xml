@@ -10,10 +10,9 @@
 
     <ImageView
         android:id="@+id/ivIdentify"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/classifier"
+        android:layout_width="381dp"
+        android:layout_height="331dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,53 +22,49 @@
         android:id="@+id/classifier"
         android:layout_width="378dp"
         android:layout_height="91dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:text="Prediction"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnCamera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivIdentify" />
 
     <Button
-        android:id="@+id/btnCamera"
-        android:layout_width="365dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="Open Camera"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/space"
+        android:id="@+id/firsAidButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Aid Information"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classifier" />
 
-    <Space
-        android:id="@+id/space"
-        android:layout_width="375dp"
-        android:layout_height="10dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnOpenGal"
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_red_dark"
+        android:text="Open Camera"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firsAidButton" />
 
     <Button
         android:id="@+id/btnOpenGal"
-        android:layout_width="369dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/holo_red_dark"
         android:text="Open Gallery"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

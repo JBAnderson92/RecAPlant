@@ -3,7 +3,7 @@
     package="edu.ggc.anderson.recaplant">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -26,9 +26,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FirstAidTest"></activity>
+
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="label" />
+
         <activity android:name=".Identify" />
         <activity android:name=".Informative" />
         <activity
@@ -43,7 +46,6 @@
         </activity>
 
         <provider
-
             android:name="androidx.core.content.FileProvider"
             android:authorities="edu.ggc.anderson.recaplant.fileprovider"
             android:exported="false"
