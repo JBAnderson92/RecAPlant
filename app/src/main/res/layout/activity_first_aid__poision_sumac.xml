@@ -8,21 +8,23 @@
     android:textAlignment="center"
     tools:context=".FirstAid">
 
+
     <ImageView
         android:id="@+id/poisonSumac"
-        android:layout_width="456dp"
-        android:layout_height="180dp"
+        android:layout_width="439dp"
+        android:layout_height="275dp"
         android:contentDescription="@string/app_name"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.33"
         app:srcCompat="@drawable/poisonsumac" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/poisonSumacCure"
         android:layout_width="403dp"
         android:layout_height="65dp"
         android:layout_marginStart="4dp"
@@ -37,19 +39,27 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/poisonSumac"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="415dp"
-        android:layout_height="352dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poisonSumac"
-        app:srcCompat="@drawable/nocure" />
+    <EditText
+        android:id="@+id/aid"
+        android:layout_width="412dp"
+        android:layout_height="328dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="468dp"
+        tools:text="Treatment: \n
+        • There is no cure for the rash. You’ll have to wait for the symptoms to pass. There are many over-the-counter remedies to help with your symptoms in the meantime, including: \n
+                o calamine lotion \n
+                o	hydrocortisone creams \n
+                o	topical anesthetics, such as menthol or benzocaine \n
+                o	oral antihistamines, such as diphenhydramine (Benadryl)
+ " />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
